@@ -156,20 +156,20 @@ Function convertData {
 # Converts a string to the specified type.
 # Parameter: dataString - The string to be converted.
 # Parameter: base - The base of the number system.
-# Parameter: extraPadding - The extra padding to be used. 
-# Returns: binaryString - The new string.
+# Parameter: padding - The extra padding to be used. 
+# Returns: convertedDataString - The new string.
 Function convertToSpecifiedType {
 
-    param( $dataString, $base, $extraPadding )
+    param( $dataString, $base, $padding )
 
-    $newDataString = ""
+    $convertedDataString = ""
 
     foreach ($byte in $dataString) {
-        $byte = [Convert]::ToString( $byte, $base ).PadLeft( $extraPadding, '0' )
-        $newDataString = $newDataString + $byte + " "
+        $byte = [Convert]::ToString( $byte, $base ).PadLeft( $padding, '0' )
+        $convertedDataString = $convertedDataString + $byte + " "
     }
 
-    return $newDataString
+    return $convertedDataString
 
 }
 
